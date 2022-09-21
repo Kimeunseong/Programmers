@@ -3,5 +3,5 @@
 
 <hr>
 
-### :rainbow: evel 1
+### :rainbow: Level 1
 

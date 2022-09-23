@@ -31,4 +31,4 @@ print(solution('a B z', 4)) # "e F d"
 print(solution('ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz', 25))
 print(solution('abcdefghijklmnopqrstuvwxyz    ', 1))
 
-# 후기 - 와우.. 역대급으로 오래 걸린 문제ㅋㅋㅋㅋ 대문자 소문자를 구분 해야하는걸 왜 생각을 못했을까ㅋㅋ 아무튼 해결ㅎ
+# 후기 - 와우.. 역대급으로 오래 걸린 문제ㅋㅋㅋㅋ 대문자 소문자를 구분 해야하는걸 왜 생각을 못했을까ㅋㅋ 아무튼 힌트없이 해결했다ㅎ

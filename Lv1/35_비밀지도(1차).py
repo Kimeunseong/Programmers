@@ -51,5 +51,24 @@ def solution(n, arr1, arr2):
         
     return answer
 
+
+# 더 좋은 코드 발견!! sol보다 sol2가 코드 길이도 짧고, 속도도 훨씬 빠르다!!
+
+def solution2(n, arr1, arr2):
+
+    answer = []
+    for x, y in zip(arr1, arr2):
+        temp = (bin(x|y))
+        str_bin = temp[2:]
+        if len(str_bin) != n:
+            str_bin = '0' *(n - len(str_bin)) + str_bin
+        
+        result1 = str_bin.replace('1', '#')
+        result1 = result1.replace('0', ' ')
+        answer.append(result1)
+
+    return answer
+
+
 print(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28])) # 출력 ["#####","# # #", "### #", "# ##", "#####"]
 print(solution(6, 	[46, 33, 33 ,22, 31, 50], [27 ,56, 19, 14, 14, 10])) # 출력 ["######", "### #", "## ##", " #### ", " #####", "### # "]

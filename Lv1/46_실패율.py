@@ -17,17 +17,19 @@
 # 스테이지에 도달한 유저가 없는 경우 해당 스테이지의 실패율은 0 으로 정의한다.
 
 def solution(N, stages):
-    dict_s ={}
+    dict_s ={} 
     stages.sort()
 
     for i in range(1, N+1):
-        dict_s[i] = stages.count(i) / len(stages)
-        del stages[:stages.count(i)]
+        if len(stages) == 0: # ZeroDivisionError 방지
+            dict_s[i] = 0
+        else:
+            dict_s[i] = stages.count(i) / len(stages) # i 단계의 실패율 구한 후 dict에 저장
+            del stages[:stages.count(i)]              # i단계 실패한 플레이어를 리스트에서 제거
     
-    return sorted(dict_s, key = lambda x : dict_s[x], reverse = True)
-
-# 런타임 에러..
+    return sorted(dict_s, key = lambda x : dict_s[x], reverse = True) # value 값을 기준으로 내림차순 정렬후, key 값만 리스트 형식으로 반환.
     
     
 print(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])) # [3,4,2,1,5]
 print(solution(4, [4,4,4,4,4])) # [4,1,2,3]
+print(solution(5, [2, 2, 2, 2, 2, 2, 2, 2])) # [2, 1, 3, 4, 5]

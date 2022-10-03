@@ -19,5 +19,6 @@
 |Lv1|[실패율](https://school.programmers.co.kr/learn/courses/30/lessons/42889)|[46_실패율.py](https://github.com/Kimeunseong/Programmers/blob/main/Lv1/46_%EC%8B%A4%ED%8C%A8%EC%9C%A8.py)|
 
 
-### :rainbow: Level 1
-진행중..(시작일 : 2022-10-03)
+### :rainbow: Level 2
+진행중.. 
+(시작일 : 2022-10-03)

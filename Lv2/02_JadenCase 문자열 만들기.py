@@ -21,3 +21,11 @@ def solution(s):
     
 print(solution("3people unFollowed me")) # "3people Unfollowed Me"
 print(solution("for the last week")) # "For The Last Week"
+
+
+# 추가 - 정답은 아니지만 편리한 내장함수가 있어서 참고하라고 추가.
+def solution(s):
+    return s.title()
+    
+print(solution("3people unFollowed me")) # "3people Unfollowed Me"
+print(solution("for the last week")) # "For The Last Week"

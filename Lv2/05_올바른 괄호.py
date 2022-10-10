@@ -7,26 +7,28 @@
 # '(' 또는 ')' 로만 이루어진 문자열 s가 주어졌을 때, 문자열 s가 올바른 괄호이면 true를 return 하고, 
 # 올바르지 않은 괄호이면 false를 return 하는 solution 함수를 완성해 주세요.
 
-def solution(s):
-    while len(s) != 0:
-        if s[0] == ')' or s[-1] == '(' or len(s) % 2 == 1:
-            return False
-            break
-        for i in range(len(s)):
-            if i == len(s) - 1:
-                break
-            elif s[i] == '(' and s[i+1] == ')':
-                s = s[:i] + s[i+2:]
-                break
+from collections import deque
 
-        if len(s) == 0 :
-            return True
-            
-            
+def solution(s):
+    s = deque(s)
+    check = []
+    if s[0] == ')' or s[-1] == '(' or len(s) % 2 == 1:
+        return False
+    else:
+        while s:
+            c = s.popleft()
+            if c == '(':
+                check.append('(')
+            elif c == ')' and check and check[-1] == '(':
+                check.pop()
+            else:
+                return False
+
+    return False if len(check) != 0 else True
+    
+    
 print(solution("()()")) # true
 print(solution("(())()")) # true
 print(solution(")()(")) # false
 print(solution("(()(")) # false
-print(solution("())(()")) # false
-
-# 테스트 케이스는 통과했지만... 효율성 빵점.. 내일 일어나서 다시 해보자....ㅠㅠㅠ
+print(solution("()))((()")) # false

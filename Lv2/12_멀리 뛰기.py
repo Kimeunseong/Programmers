@@ -11,5 +11,13 @@
 # 여기에 1234567를 나눈 나머지를 리턴하는 함수, solution을 완성하세요. 예를 들어 4가 입력된다면, 5를 return하면 됩니다.
 
 def solution(n):
-    answer = 0
-    return answer
+    cnt1 = 0
+    cnt2 = 0
+    total = 0
+
+    while cnt1 <= n:
+        # (2*cnt2), (1*cnt1)으로 줄세우는 경우의 수 연산 => total에 저장
+        cnt1 += 2
+        cnt2 -= 1
+    
+    return total

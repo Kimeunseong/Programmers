@@ -36,3 +36,10 @@ def solution(n):
 print(solution(3))
 print(solution(4))
 print(solution(5))
+
+
+# 추가. 아마 이런 방법도 있을 거 같음. 나중에 한번 시도해보자
+# 값이 나오는 걸로 봤을때, 결과값이 마치 피보나치의 수열과 같은 결과를 보여준다. 따라서 피보나치 수열 방법을 통해 문제를 풀어보자
+
+def solution(n):
+    return n if n <= 2 else solution(n-1) + solution(n-2)

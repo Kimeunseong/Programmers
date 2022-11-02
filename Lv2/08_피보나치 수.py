@@ -11,12 +11,24 @@
 
 # 2 이상의 n이 입력되었을 때, n번째 피보나치 수를 1234567으로 나눈 나머지를 리턴하는 함수, solution을 완성해 주세요.
 
-def solution(n):
-    return n if n <= 1 else solution(n-1) + solution(n-2)
-        
-    
-print(solution(3)) # 2
-print(solution(5)) # 5
-print(solution(10)) # 5
+def solution(n):  
+    if n <= 1:
+        return n
 
-# 효율성 빵점.. 재귀함수 말고 다른 코드를 생각해보자.
+    else:
+        cnt, f0, f1 = 0, 0, 1
+        
+        for i in range(2, n+1):
+            cnt = f1 + f0
+            f0 = f1
+            f1 = cnt
+
+        return cnt % 1234567
+    
+print(solution(2)) # 1
+print(solution(3)) # 2
+print(solution(4)) # 3
+print(solution(5)) # 5
+print(solution(6)) # 8
+
+# 파이썬에서는 재귀함수 호출이 일정 이상은 안된다. 따라서 이럴때는 반복문을 이용하여 문제를 해결하자!

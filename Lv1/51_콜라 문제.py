@@ -4,46 +4,16 @@
 # 상빈이가 가지고 있는 빈 병의 개수 n이 매개변수로 주어집니다. 
 # 상빈이가 받을 수 있는 콜라의 병 수를 return 하도록 solution 함수를 작성해주세요.
 
-a, b, n = 2, 1, 20
-cnt = 0
-p = 0
-
-p = n
-n -= p
-
-n += (p-p%a)*b/a
-cnt += n
-print('n =', n)
-print('cnt =', cnt)
-
-p = int(n)
-n -= p
-
-n += (p-p%a)*b/a
-cnt += n
-print('n =', n)
-print('cnt =', cnt)
-
-p = int(n)
-n -= p
-
-n += (p-p%a)*b/a
-cnt += n
-print('n =', n)
-print('cnt =', cnt)
-
-p = int(n)
-n -= p
-
-n += (p-p%a)*b/a
-cnt += n
-print('n =', n)
-print('cnt =', cnt)
-
-p = int(n)
-n -= p
-
-n += (p-p%a)*b/a
-cnt += n
-print('n =', n)
-print('cnt =', cnt)
+def solution(a, b, n):
+    cnt = 0
+    p = n
+    while n >= a:
+        p -= n - n%a
+        cnt += (n - n%a)*b/a
+        p += (n - n%a)*b/a
+        n = p
+        
+    return int(cnt)
+    
+print(solution(2, 1, 20))
+print(solution(3, 1, 20))

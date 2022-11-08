@@ -10,3 +10,31 @@ def solution(numbers, hand):
 print(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right")) # "LRLLLRLLRRL"
 print(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left")) # "LRLLRRLLLRR"
 print(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right")) # "LLRLLRLLRL"
+
+
+
+numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]
+hand = 'right'
+
+pad = [[1,2,3],
+       [4,5,6],
+       [7,8,9],
+       ['*',0,'#']]
+
+answer = ''
+
+for i in numbers:
+    if i in [1, 4, 7]:
+        answer = answer + 'L'
+        target = pad[:, 0].index(i)
+        print(target)
+    elif i in [3, 6, 9]:
+        answer = answer + 'R'
+        target = pad[:, 0].index(i)
+        print(target)
+    else:
+        cntL, cntR = 0, 0
+#         answer = answer + 'C'
+        
+
+print(answer)

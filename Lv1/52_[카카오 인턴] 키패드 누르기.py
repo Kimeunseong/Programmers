@@ -12,29 +12,55 @@ print(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left")) # "LRLLRRLLLRR"
 print(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right")) # "LLRLLRLLRL"
 
 
+######################################################
 
-numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]
-hand = 'right'
+numbers = [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2]
+hand = 'left'
 
-pad = [[1,2,3],
-       [4,5,6],
-       [7,8,9],
-       ['*',0,'#']]
+pad2 = [[1,4,7,'*'],
+        [2,5,8,0],
+        [3,6,9,'#']]
+
+left = pad2[0][3] # '*', 왼손 엄지 초기 위치
+right = pad2[2][3] # '#', 오른손 엄지 초기 위치
+target_left = 3
+target_right = 3
 
 answer = ''
 
 for i in numbers:
-    if i in [1, 4, 7]:
+    if i in [1, 4, 7]: # 왼손만 사용
         answer = answer + 'L'
-        target = pad[:, 0].index(i)
-        print(target)
-    elif i in [3, 6, 9]:
+        target_left = pad2[0].index(i)
+        print(f'target_left = {target_left}, num = {i}')
+        left = pad2[0][target_left]
+        print(f'left = {left}')
+        
+    elif i in [3, 6, 9]: # 오른손만 사용
         answer = answer + 'R'
-        target = pad[:, 0].index(i)
-        print(target)
+        target_right = pad2[2].index(i)
+        print(f'target_right = {target_right}, num = {i}')
+        right = pad2[2][target_right]
+        print(f'right = {right}')
+        
     else:
         cntL, cntR = 0, 0
-#         answer = answer + 'C'
+        target = pad2[1].index(i)
+        print(f'target = {target}, num = {i}')
         
-
+        cntL = 1 + abs(target_left - target)
+        cntR = 1 + abs(target_right - target)
+        print(f'cntL={cntL}, cntR={cntR}')
+        
+        if cntL < cntR:
+            answer = answer + 'L'
+        elif cntL > cntR:
+            answer = answer + 'R'
+        else:
+            if hand == 'left':
+                answer = answer + 'L'
+            elif hand == 'right':
+                answer = answer + 'R'
+        
+print()
 print(answer)

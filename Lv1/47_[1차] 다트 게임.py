@@ -2,83 +2,36 @@
 # (문제 생략)
 
 def solution(dartResult):
-    a = ''
-    return a
+    arr = ''
+    point = []
+
+    for i in dartResult : 
+        if i.isdigit():
+            arr += i
+        elif i == 'S':
+            point.append(int(arr)**1)
+            arr = ''
+        elif i == 'D':
+            point.append(int(arr)**2)
+            arr = ''
+        elif i == 'T':
+            point.append(int(arr)**3)
+            arr = ''
+        elif i == '#':
+            point.append(point.pop()*(-1))
+        elif i == '*':
+            tmp = point[:-2]
+            for i in point[-2:]:
+                tmp.append(i*2)
+            point = tmp
+    
+    return sum(point)
+    
 
 print(solution('1S2D*3T')) # 37
 print(solution('1D2S#10S')) # 9
-
-
-# 아직 미완성..
-
-dart = '1D2S3T*'
-num = ''
-point = 0
-po = []
-
-for i in range(len(dart)) : 
-    # i 가 숫자일 경우,
-    if dart[i] in '1234567890':
-        num += dart[i]
-        print(f'num_{dart[i]} = {num}')
-        
-    elif dart[i] == 'S':
-        point += int(num) **1
-        po.append(int(num) **1)
-        print(f'{po}')
-        print(f'point_{dart[i]} = {point}')
-        if i == len(dart) -1:
-            print('end')
-            break
-        elif dart[i+1] == '#':
-            point += int(num) * (-2)
-            print(f'point_{dart[i+1]} = {point}')
-        elif dart[i+1] == '*' and dart[i+1] == len(dart) -1:
-            point += int(num) * 2
-        elif dart[i+1] == '*':
-            point = point * 2
-            print(f'point_{dart[i+1]} = {point}')
-        num = ''
-        
-    elif dart[i] == 'D':
-        point += int(num) **2
-        po.append(int(num) **2)
-        print(f'{po}')
-        print(f'point_{dart[i]} = {point}')
-        if i == len(dart) -1:
-            print('end')
-            break
-        elif dart[i+1] == '#':
-            point += (int(num) **2) * (-2)
-            print(f'point_{dart[i+1]} = {point}')
-        elif dart[i+1] == '*' and dart[i+1] == len(dart) -1:
-            point += int(num) * 2
-        elif dart[i+1] == '*':
-            point = point * 2
-            print(f'point_{dart[i+1]} = {point}')
-        num = ''
-        
-    elif dart[i] == 'T':
-        point += int(num) **3
-        po.append(int(num) **3)
-        print(f'{po}')
-        print(f'point_{dart[i]} = {point}')
-        if i == len(dart) -1:
-            print('end')
-            break
-        elif dart[i+1] == '#':
-            point += (int(num) **3) * (-2)
-            print(f'point_{dart[i+1]} = {point}')
-        elif dart[i+1] == '*' and dart[i+1] == len(dart) -1:
-            point += int(num) * 2
-        elif dart[i+1] == '*':
-            point = point * 2
-            print(f'point_{dart[i+1]} = {point}')
-        num = ''
-
-
-print()
-print(po)
-print(f'return = {point}')
-
-
+print(solution('1D2S0T')) # 3
+print(solution('1S*2T*3S')) # 23
+print(solution('1D#2S*3S')) # 5
+print(solution('1T2D3D#')) # -4
+print(solution('1D2S3T*')) # 59

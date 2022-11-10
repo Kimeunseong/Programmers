@@ -6,98 +6,43 @@
 def solution(numbers, hand):
 
     answer = ''
-    pad2 = [[1,4,7,10],
-            [2,5,8,0],
-            [3,6,9,12]]
 
-    targetL_row, targetL_col = 0, 3
-    targetR_row, targetR_col = 2, 3
+    pad = {1:[0,0], 2:[0,1], 3:[0,2],
+           4:[1,0], 5:[1,1], 6:[1,2],
+           7:[2,0], 8:[2,1], 9:[2,2],
+           '*':[3,0], 0:[3,1], '#':[3,1]}
+
+    target_left = [3,0]
+    target_right = [3,1]
 
     for i in numbers:
-        if i in pad2[0]:
-            answer = answer + 'L'
-            targetL_row = pad2[0].index(i)
-            targetL_col = 0
-        elif i in pad2[2]:
-            answer = answer + 'R'
-            targetR_row = pad2[2].index(i)
-            targetR_col = 2
+        if i in [1, 4, 7]:
+            answer += 'L'
+            target_left = pad[i]
+        elif i in [3, 6, 9]:
+            answer += 'R'
+            target_right = pad[i]
         else:
-            cntL, cntR = 0, 0
-            targetM_col = pad2[1].index(i)
-            targetM_row = 1
-            cntL = abs(targetM_row - targetL_row) + abs(targetL_col - targetM_col)
-            cntR = abs(targetM_row - targetR_row) + abs(targetR_col - targetM_col)
-
+            target = pad[i]
+            cntL = abs(target_left[0] - target[0]) + abs(target_left[1] - target[1])
+            cntR = abs(target_right[0] - target[0]) + abs(target_right[1] - target[1])
             if cntL < cntR:
-                answer = answer + 'L'
-                targetL_row, targetL_col = 1, targetM_col
+                answer += 'L'
+                target_left = pad[i]
             elif cntL > cntR:
-                answer = answer + 'R'
-                targetR_row, targetR_col = 1, targetM_col
+                answer +='R'
+                target_right = pad[i]
             else:
                 if hand == 'left':
-                    answer = answer + 'L'
-                    targetL_row, targetL_col = 1, targetM_col
-                elif hand == 'right':
-                    answer = answer + 'R'
-                    targetR_row, targetR_col = 1, targetM_col
+                    answer += 'L'
+                    target_left = pad[i]
+                else:
+                    answer += 'R'
+                    target_right = pad[i]
     return answer
 
 print(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right")) # "LRLLLRLLRRL"
 print(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left")) # "LRLLRRLLLRR"
 print(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right")) # "LLRLLRLLRL"
 
-
-######################################################
-
-numbers = [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2]
-hand = 'left'
-
-pad2 = [[1,4,7,'*'],
-        [2,5,8,0],
-        [3,6,9,'#']]
-
-left = pad2[0][3] # '*', 왼손 엄지 초기 위치
-right = pad2[2][3] # '#', 오른손 엄지 초기 위치
-target_left = 3
-target_right = 3
-
-answer = ''
-
-for i in numbers:
-    if i in [1, 4, 7]: # 왼손만 사용
-        answer = answer + 'L'
-        target_left = pad2[0].index(i)
-        print(f'target_left = {target_left}, num = {i}')
-        left = pad2[0][target_left]
-        print(f'left = {left}')
-        
-    elif i in [3, 6, 9]: # 오른손만 사용
-        answer = answer + 'R'
-        target_right = pad2[2].index(i)
-        print(f'target_right = {target_right}, num = {i}')
-        right = pad2[2][target_right]
-        print(f'right = {right}')
-        
-    else:
-        cntL, cntR = 0, 0
-        target = pad2[1].index(i)
-        print(f'target = {target}, num = {i}')
-        
-        cntL = 1 + abs(target_left - target)
-        cntR = 1 + abs(target_right - target)
-        print(f'cntL={cntL}, cntR={cntR}')
-        
-        if cntL < cntR:
-            answer = answer + 'L'
-        elif cntL > cntR:
-            answer = answer + 'R'
-        else:
-            if hand == 'left':
-                answer = answer + 'L'
-            elif hand == 'right':
-                answer = answer + 'R'
-        
-print()
-print(answer)
+# => 테스트 2, 8, 12, 17, 18 실패...

@@ -6,22 +6,21 @@
 
 def solution(X, Y):
     num = ''
-    dict_x = {}
-    dict_y = {}
-
-    for i in X:
-        dict_x[i] = 0
-    for i in Y:
-        dict_y[i] = 0
+    dict_x = {'9': 0, '8': 0, '7': 0, '6': 0, '5': 0, '4': 0, '3': 0, '2': 0, '1': 0, '0': 0}
+    dict_y = {'9': 0, '8': 0, '7': 0, '6': 0, '5': 0, '4': 0, '3': 0, '2': 0, '1': 0, '0': 0}
+    dict_x2 = {}
 
     for i in X:
         dict_x[i] += 1
     for i in Y:
         dict_y[i] += 1
+        
+    for i in dict_x.keys():
+        if dict_x[i] != 0:
+            dict_x2[i] = dict_x[i]
 
-    for i in sorted(dict_x, reverse=True):
-        if i in dict_y:
-            num += i * dict_y[i]
+    for i in dict_x2.keys():
+        num += i * dict_y[i] if dict_x[i] >= dict_y[i] else i * dict_x[i]
     
     if len(num) == 0:
         return '-1'
@@ -35,6 +34,7 @@ print(solution("100", "203045")) # '0'
 print(solution("100", "123450")) # '10'
 print(solution("12321", "42531")) # '321'
 print(solution("5525", "1255")) # '552'
+print(solution('10000000000000001000001', '10000000000000001111111111111100000000000'))
 
-# 3개 틀림, 5개 시간초과.
-# 52.6 / 100.0
+# 5개 시간초과(11~15)
+# 합계: 73.7 / 100.0

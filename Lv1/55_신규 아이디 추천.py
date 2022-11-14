@@ -14,6 +14,8 @@
 # 만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.)
 # 7단계 new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지 반복해서 끝에 붙입니다.
 
+from collections import deque
+
 def level1(id1):
     return id1.lower()
 
@@ -32,6 +34,17 @@ def level3(id3):
         else:
             break
     return id3
+
+def level4(id4):
+    if len(id4) == 0:
+        return id4
+    else:
+        id_que = deque(id4)
+        if id_que[0] == '.':
+            id_que.popleft()
+        if id_que[-1] == '.':
+            id_que.pop()
+        return id_que
 
 def solution(new_id):
     answer = level1(new_id)

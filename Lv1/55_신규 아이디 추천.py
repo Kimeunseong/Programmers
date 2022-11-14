@@ -46,12 +46,18 @@ def level4(id4):
             id_que.pop()
         return id_que
 
+def level5(id5):
+    if len(id5) == 0:
+        return 'a'
+    else:
+        return ''.join(list(id5))
+
 def solution(new_id):
     answer = level1(new_id)
     answer = level2(answer)
     answer = level3(answer)
-    # answer = level4(answer)
-    # answer = level5(answer)
+    answer = level4(answer)
+    answer = level5(answer)
     # answer = level6(answer)
     # answer = level7(answer)
     return answer

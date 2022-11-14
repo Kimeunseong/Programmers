@@ -17,6 +17,14 @@
 def level1(id1):
     return id1.lower()
 
+def level2(id2):
+    symbol = ['-', '_',  '.']
+    result = ''
+    for i in id2:
+        if i.isdigit() or i.isalpha() or i in symbol:
+            result += i
+    return result
+
     
 
 # print(solution("...!@BaT#*..y.abcdefghijklm")) # "bat.y.abcdefghi"

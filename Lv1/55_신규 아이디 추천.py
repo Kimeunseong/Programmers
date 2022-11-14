@@ -59,6 +59,11 @@ def level6(id6):
             list(id6).pop()
     return ''.join(id6)
 
+def level7(id7):
+    if len(id7) <= 2:
+        id7 = id7 + id7[-1] * (3 - len(id7))
+    return id7
+
 def solution(new_id):
     answer = level1(new_id)
     answer = level2(answer)
@@ -66,7 +71,7 @@ def solution(new_id):
     answer = level4(answer)
     answer = level5(answer)
     answer = level6(answer)
-    # answer = level7(answer)
+    answer = level7(answer)
     return answer
 
 
@@ -76,3 +81,7 @@ print(solution("z-+.^.")) # "z--"
 # print(solution("=.=")) # aaa"
 print(solution("123_.def")) # "123_.def"
 print(solution("abcdefghijklmn.p")) # "abcdefghijklmn"
+
+# 1. deque -> str 문제 해결
+# 2. list(str) or str(list) 시간복잡도 줄이기
+# 3. (가능하다면) 함수를 덜 호출하면서 빠르게 가능한 코드 알아보기(몇 단계 정도는 스킵해도 되는 그런 무언가....)

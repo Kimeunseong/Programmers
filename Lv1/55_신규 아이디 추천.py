@@ -52,15 +52,23 @@ def level5(id5):
     else:
         return ''.join(list(id5))
 
+def level6(id6):
+    if len(id6) >= 16:
+        id6 = id6[:15]
+        if id6[-1] == '.':
+            list(id6).pop()
+    return ''.join(id6)
+
 def solution(new_id):
     answer = level1(new_id)
     answer = level2(answer)
     answer = level3(answer)
     answer = level4(answer)
     answer = level5(answer)
-    # answer = level6(answer)
+    answer = level6(answer)
     # answer = level7(answer)
     return answer
+
 
 
 print(solution("...!@BaT#*..y.abcdefghijklm")) # "bat.y.abcdefghi"

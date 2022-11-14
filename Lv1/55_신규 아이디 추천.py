@@ -25,10 +25,27 @@ def level2(id2):
             result += i
     return result
 
-    
+def level3(id3):
+    while True:
+        if '..' in id3:
+            id3 = id3.replace('..', '.')
+        else:
+            break
+    return id3
 
-# print(solution("...!@BaT#*..y.abcdefghijklm")) # "bat.y.abcdefghi"
-# print(solution("z-+.^.")) # "z--"
-# # print(solution("=.=")) # aaa"
-# print(solution("123_.def")) # "123_.def"
-# print(solution("abcdefghijklmn.p")) # "abcdefghijklmn"
+def solution(new_id):
+    answer = level1(new_id)
+    answer = level2(answer)
+    answer = level3(answer)
+    # answer = level4(answer)
+    # answer = level5(answer)
+    # answer = level6(answer)
+    # answer = level7(answer)
+    return answer
+
+
+print(solution("...!@BaT#*..y.abcdefghijklm")) # "bat.y.abcdefghi"
+print(solution("z-+.^.")) # "z--"
+# print(solution("=.=")) # aaa"
+print(solution("123_.def")) # "123_.def"
+print(solution("abcdefghijklmn.p")) # "abcdefghijklmn"

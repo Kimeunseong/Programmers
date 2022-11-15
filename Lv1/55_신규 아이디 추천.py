@@ -44,14 +44,14 @@ def level4(id4):
             id_que.popleft()
         if id_que[-1] == '.':
             id_que.pop()
-        return id_que
+        return ''.join(list(id_que))
 
 def level5(id5):
     if len(id5) == 0:
         return 'a'
     else:
-        return ''.join(list(id5))
-
+        return id5
+    
 def level6(id6):
     if len(id6) >= 16:
         id6 = id6[:15]
@@ -66,21 +66,29 @@ def level7(id7):
 
 def solution(new_id):
     answer = level1(new_id)
+    print(f'level1 result : {answer}')
     answer = level2(answer)
+    print(f'level2 result : {answer}')
     answer = level3(answer)
+    print(f'level3 result : {answer}')
     answer = level4(answer)
+    print(f'level4 result : {answer}')
     answer = level5(answer)
+    print(f'level5 result : {answer}')
     answer = level6(answer)
+    print(f'level6 result : {answer}')
     answer = level7(answer)
+    print(f'level7 result : {answer}')
+    print()
     return answer
+    
+# print(solution("...!@BaT#*..y.abcdefghijklm")) # "bat.y.abcdefghi"
+# print(solution("z-+.^.")) # "z--"
+print(solution("=.=")) # aaa"
+# print(solution("123_.def")) # "123_.def"
+# print(solution("abcdefghijklmn.p")) # "abcdefghijklmn"
 
 
-
-print(solution("...!@BaT#*..y.abcdefghijklm")) # "bat.y.abcdefghi"
-print(solution("z-+.^.")) # "z--"
-# print(solution("=.=")) # aaa"
-print(solution("123_.def")) # "123_.def"
-print(solution("abcdefghijklmn.p")) # "abcdefghijklmn"
 
 # 1. deque -> str 문제 해결
 # 2. list(str) or str(list) 시간복잡도 줄이기

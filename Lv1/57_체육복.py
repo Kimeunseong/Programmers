@@ -17,3 +17,26 @@ def solution(n, lost, reserve):
 print(solution(5, [2,4], [1,3,5])) # 5
 print(solution(5, [2,4], [3])) # 4
 print(solution(3, [3], [1])) # 2
+
+n = 5
+lost = [2, 4]
+r = [1,3,5]
+
+have = []
+for i in range(1, n+1):
+    if i in lost:
+        pass
+    else:
+        have.append(i)
+for i in r:
+    front = i-1
+    if front == 0:
+        pass
+    else:
+        if i-1 in have:
+            pass
+        else:
+            have.append(i-1)
+        
+print(have)
+print(len(have))

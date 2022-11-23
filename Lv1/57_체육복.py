@@ -70,3 +70,6 @@ print('\n')
 print(f'have: {have}')
 print(f'lost: {lost}')
 print(f'r: {r}')
+
+print(have)
+print(len(have))

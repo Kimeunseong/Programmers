@@ -28,15 +28,26 @@ for i in range(1, n+1):
         pass
     else:
         have.append(i)
+        
+print(f'have: {have}')
+print(f'lost: {lost}')
+print(f'r: {r}')
+print('\n')
+
+print('==================')       
 for i in r:
+    print(f'i = {i}')
     front = i-1
+    print(f'front={front}')
     if front == 0:
         pass
     else:
-        if i-1 in have:
-            pass
-        else:
-            have.append(i-1)
-        
-print(have)
-print(len(have))
+        if front in lost:
+            have.append(front)
+            r.remove(i)
+            lost.remove(front)
+
+print('\n')
+print(f'have: {have}')
+print(f'lost: {lost}')
+print(f'r: {r}')

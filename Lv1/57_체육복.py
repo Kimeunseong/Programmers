@@ -51,3 +51,20 @@ print('\n')
 print(f'have: {have}')
 print(f'lost: {lost}')
 print(f'r: {r}')
+
+for i in r:
+    print(f'i = {i}')
+    back = i+1
+    print(f'back={back}')
+    if back == n+1:
+        pass
+    else:
+        if front in lost:
+            have.append(back)
+            r.remove(i)
+            lost.remove(back)
+
+print('\n')
+print(f'have: {have}')
+print(f'lost: {lost}')
+print(f'r: {r}')

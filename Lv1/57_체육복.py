@@ -38,6 +38,37 @@ print(f'lost: {lost}')
 print(f'r: {r}')
 print('\n')
 
+r2 = r.copy()
+for i in r2:
+    front = i-1
+    if front == 0:
+        pass
+    else:
+        if front in lost:
+            have.append(front)
+            r.remove(i)
+            lost.remove(front)
+            
+print(f'have: {have}')
+print(f'lost: {lost}')
+print(f'r: {r}')
+print('\n')
+
+r2 = r.copy()
+for i in r2:
+    back = i+1
+    if back == n+1:
+        pass
+    else:
+        if front in lost:
+            have.append(back)
+            r.remove(i)
+            lost.remove(back)
+            
+print(f'have: {have}')
+print(f'lost: {lost}')
+print(f'r: {r}')
+print('\n')
 
 # print('==================')
 # for i in r:

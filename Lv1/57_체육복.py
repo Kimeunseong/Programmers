@@ -20,6 +20,8 @@ print(solution(5, [2,4], [1,3,5])) # 5
 print(solution(5, [2,4], [3])) # 4
 print(solution(3, [3], [1])) # 2
 
+from collections import deque
+
 n = 5
 lost = [2, 4]
 r = [1,3,5]
@@ -36,40 +38,44 @@ print(f'lost: {lost}')
 print(f'r: {r}')
 print('\n')
 
-print('==================')       
-for i in r:
-    print(f'i = {i}')
-    front = i-1
-    print(f'front={front}')
-    if front == 0:
-        pass
-    else:
-        if front in lost:
-            have.append(front)
-            r.remove(i)
-            lost.remove(front)
 
-print('\n')
-print(f'have: {have}')
-print(f'lost: {lost}')
-print(f'r: {r}')
+# print('==================')
+# for i in r:
+#     print(f'i = {i}')
+#     front = i-1
+#     print(f'front={front}')
+#     if front == 0:
+#         pass
+#     else:
+#         if front in lost:
+#             have.append(front)
+#             r.remove(i)
+#             lost.remove(front)
 
-for i in r:
-    print(f'i = {i}')
-    back = i+1
-    print(f'back={back}')
-    if back == n+1:
-        pass
-    else:
-        if front in lost:
-            have.append(back)
-            r.remove(i)
-            lost.remove(back)
+# print('\n')
+# print(f'have: {have}')
+# print(f'lost: {lost}')
+# print(f'r: {r}')
 
-print('\n')
-print(f'have: {have}')
-print(f'lost: {lost}')
-print(f'r: {r}')
+# print('==================')
+# for i in r:
+#     print(f'i = {i}')
+#     back = i+1
+#     print(f'back={back}')
+#     if back == n+1:
+#         pass
+#     else:
+#         if front in lost:
+#             have.append(back)
+#             r.remove(i)
+#             lost.remove(back)
 
-print(have)
-print(len(have))
+# print('\n')
+# print(f'have: {have}')
+# print(f'lost: {lost}')
+# print(f'r: {r}')
+
+
+
+# print(have)
+# print(len(have))

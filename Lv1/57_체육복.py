@@ -10,75 +10,45 @@
 # 여벌의 체육복을 가져온 학생들의 번호가 담긴 배열 reserve가 매개변수로 주어질 때, 
 # 체육수업을 들을 수 있는 학생의 최댓값을 return 하도록 solution 함수를 작성해주세요.
 
-from collections import deque
-
 def solution(n, lost, reserve):
-    answer = 0
-    return answer
-
+    have = []
+    for i in range(1, n+1):
+        if i in lost:
+            pass
+        else:
+            have.append(i)
+            
+    if have == reserve:
+        return n
+    
+    else:
+        r2 = reserve.copy()
+        for i in r2:
+            if (i-1) == 0:
+                pass
+            else:
+                if i-1 in lost:
+                    have.append(i-1)
+                    reserve.remove(i)
+                    lost.remove(i-1)
+                
+        if len(lost)==0:
+            return len(have)
+        else:
+            r2 = reserve.copy()
+            for i in r2:
+                if i+1 == n+1:
+                    pass
+                else:
+                    if i+1 in lost:
+                        have.append(i+1)
+                        reserve.remove(i)
+                        lost.remove(i+1)
+                
+            return len(have)
+                
 print(solution(5, [2,4], [1,3,5])) # 5
 print(solution(5, [2,4], [3])) # 4
 print(solution(3, [3], [1])) # 2
 
-
-
-from collections import deque
-
-n = 5
-lost = [2, 4]
-r = [1,3,5]
-
-have = []
-for i in range(1, n+1):
-    if i in lost:
-        pass
-    else:
-        have.append(i)
-        
-print(f'have: {have}')
-print(f'lost: {lost}')
-print(f'r: {r}')
-print('\n')
-
-if have == r:
-    print(f'밑에 할 필요 없음! result = {n}')
-    print('\n')
-
-r2 = r.copy()
-for i in r2:
-    front = i-1
-    if front == 0:
-        pass
-    else:
-        if front in lost:
-            have.append(front)
-            r.remove(i)
-            lost.remove(front)
-            
-print(f'have: {have}')
-print(f'lost: {lost}')
-print(f'r: {r}')
-print('\n')
-
-if len(lost)==0:
-    print(f'밑에 할 필요 없음! result = {len(have)}')
-    print('\n')
-
-r2 = r.copy()
-for i in r2:
-    back = i+1
-    if back == n+1:
-        pass
-    else:
-        if front in lost:
-            have.append(back)
-            r.remove(i)
-            lost.remove(back)
-            
-print(f'have: {have}')
-print(f'lost: {lost}')
-print(f'r: {r}')
-print('\n')
-
-print(have)
-print('result =', len(have))
+# 이제 시간복잡도를 줄여보자!

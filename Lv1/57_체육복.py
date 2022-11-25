@@ -22,6 +22,8 @@ print(solution(3, [3], [1])) # 2
 
 
 
+from collections import deque
+
 n = 5
 lost = [2, 4]
 r = [1,3,5]
@@ -38,6 +40,10 @@ print(f'lost: {lost}')
 print(f'r: {r}')
 print('\n')
 
+if have == r:
+    print(f'밑에 할 필요 없음! result = {n}')
+    print('\n')
+
 r2 = r.copy()
 for i in r2:
     front = i-1
@@ -53,6 +59,10 @@ print(f'have: {have}')
 print(f'lost: {lost}')
 print(f'r: {r}')
 print('\n')
+
+if len(lost)==0:
+    print(f'밑에 할 필요 없음! result = {len(have)}')
+    print('\n')
 
 r2 = r.copy()
 for i in r2:
@@ -71,4 +81,4 @@ print(f'r: {r}')
 print('\n')
 
 print(have)
-print(len(have))
+print('result =', len(have))

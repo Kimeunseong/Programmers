@@ -15,5 +15,14 @@
 # 과일 장수가 얻을 수 있는 최대 이익을 return하는 solution 함수를 완성해주세요.
 
 def solution(k, m, score):
-    answer = 0
-    return answer
+    result = 0
+    score.sort(reverse=True)
+    for i in range(len(score)//m):
+        box = score[:m]
+        result += box[-1] * m
+        score = score[m:]
+        
+    return result
+
+print(solution(3, 4, [1, 2, 3, 1, 2, 3, 1])) # 8
+print(solution(4, 3, [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2])) # 33

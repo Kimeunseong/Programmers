@@ -26,3 +26,16 @@ def solution(k, m, score):
 
 print(solution(3, 4, [1, 2, 3, 1, 2, 3, 1])) # 8
 print(solution(4, 3, [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2])) # 33
+
+from collections import Counter
+
+k = 4
+m = 3
+score = [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2]
+s = Counter(score)
+dict_s = {}
+
+for i in range(k, 0, -1):
+    dict_s[i] = s[i]
+    
+print(dict_s)

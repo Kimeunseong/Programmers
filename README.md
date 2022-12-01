@@ -26,4 +26,4 @@
 |Lv1|[[1차] 다트 게임](https://school.programmers.co.kr/learn/courses/30/lessons/17682)|[47_[1차] 다트 게임.py](https://github.com/Kimeunseong/Programmers/blob/main/Lv1/47_%5B1%EC%B0%A8%5D%20%EB%8B%A4%ED%8A%B8%20%EA%B2%8C%EC%9E%84.py)|
 |Lv1|[숫자 짝궁.py](https://school.programmers.co.kr/learn/courses/30/lessons/131128)|54_숫자 짝궁.py|
 |Lv2|[올바른 괄호](https://school.programmers.co.kr/learn/courses/30/lessons/12909)|[05_올바른 괄호.py](https://github.com/Kimeunseong/Programmers/blob/main/Lv2/05_%EC%98%AC%EB%B0%94%EB%A5%B8%20%EA%B4%84%ED%98%B8.py)|
-|Lv2|[짝지어 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/12973)|_짝지어 제거하기.py|
+|Lv2|[짝지어 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/12973)|11_짝지어 제거하기.py|
